@@ -36,11 +36,24 @@ public class Dice : MonoBehaviour {
         if (whosTurn == 1)
         {
             GameControl.MovePlayer(1);
-        } else if (whosTurn == -1)
+        }
+        else if (whosTurn == 2)
         {
             GameControl.MovePlayer(2);
         }
-        whosTurn *= -1;
+        else if (whosTurn == 3)
+        {
+            GameControl.MovePlayer(3);
+        }
+        else if (whosTurn == 4)
+        {
+            GameControl.MovePlayer(4);
+        }
+        whosTurn ++;
+        if (whosTurn > 4)
+        {
+            whosTurn = 1;
+        }
         coroutineAllowed = true;
     }
 }
