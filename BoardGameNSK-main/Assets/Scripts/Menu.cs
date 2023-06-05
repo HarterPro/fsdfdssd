@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour
 
     public void toGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("BoardGame");
     }
 
     public void toExit()

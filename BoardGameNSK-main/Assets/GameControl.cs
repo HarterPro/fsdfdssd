@@ -12,7 +12,7 @@ public class GameControl : MonoBehaviour {
     public static int player2StartWaypoint = 0;
     public static int player3StartWaypoint = 0;
     public static int player4StartWaypoint = 0;
-     
+
     public static bool gameOver = false;
 
     // Use this for initialization
@@ -37,13 +37,14 @@ public class GameControl : MonoBehaviour {
         whoWinsTextShadow.gameObject.SetActive(false);
         player1MoveText.gameObject.SetActive(true);
         player2MoveText.gameObject.SetActive(false);
-        
+        player3MoveText.gameObject.SetActive(false);
+        player4MoveText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player1.GetComponent<FollowThePath>().waypointIndex > 
+        if (player1.GetComponent<FollowThePath>().waypointIndex >
             player1StartWaypoint + diceSideThrown)
         {
             player1.GetComponent<FollowThePath>().moveAllowed = false;
@@ -57,23 +58,23 @@ public class GameControl : MonoBehaviour {
         {
             player2.GetComponent<FollowThePath>().moveAllowed = false;
             player2MoveText.gameObject.SetActive(false);
-            player1MoveText.gameObject.SetActive(true);
+            player3MoveText.gameObject.SetActive(true);
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
         }
         if (player3.GetComponent<FollowThePath>().waypointIndex >
             player3StartWaypoint + diceSideThrown)
         {
             player3.GetComponent<FollowThePath>().moveAllowed = false;
-            player1MoveText.gameObject.SetActive(true);
-            player2MoveText.gameObject.SetActive(true);
+            player3MoveText.gameObject.SetActive(false);
+            player4MoveText.gameObject.SetActive(true);
             player3StartWaypoint = player3.GetComponent<FollowThePath>().waypointIndex - 1;
         }
         if (player4.GetComponent<FollowThePath>().waypointIndex >
             player4StartWaypoint + diceSideThrown)
         {
             player4.GetComponent<FollowThePath>().moveAllowed = false;
+            player4MoveText.gameObject.SetActive(false);
             player1MoveText.gameObject.SetActive(true);
-            player2MoveText.gameObject.SetActive(true);
             player4StartWaypoint = player4.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 

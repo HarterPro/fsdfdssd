@@ -9,6 +9,7 @@ public class FollowThePath : MonoBehaviour {
 
     [HideInInspector]
     public int waypointIndex = 0;
+    
 
     public bool moveAllowed = false;
 
