@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
 
-    private static GameObject whoWinsTextShadow, player1MoveText, player2MoveText, player3MoveText, player4MoveText;
+    private static GameObject whoWinsTextShadow, Player1Icon, Player2Icon, Player3Icon, Player4Icon;
 
     private static GameObject player1, player2, player3, player4;
 
@@ -19,10 +19,10 @@ public class GameControl : MonoBehaviour {
     void Start () {
 
         whoWinsTextShadow = GameObject.Find("WhoWinsText");
-        player1MoveText = GameObject.Find("Player1MoveText");
-        player2MoveText = GameObject.Find("Player2MoveText");
-        player3MoveText = GameObject.Find("Player3MoveText");
-        player4MoveText = GameObject.Find("Player4MoveText");
+        Player1Icon = GameObject.Find("Player1Icon");
+        Player2Icon = GameObject.Find("Player2Icon");
+        Player3Icon = GameObject.Find("Player3Icon");
+        Player4Icon = GameObject.Find("Player4Icon");
 
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
@@ -35,10 +35,10 @@ public class GameControl : MonoBehaviour {
         player4.GetComponent<FollowThePath>().moveAllowed = false;
 
         whoWinsTextShadow.gameObject.SetActive(false);
-        player1MoveText.gameObject.SetActive(true);
-        player2MoveText.gameObject.SetActive(false);
-        player3MoveText.gameObject.SetActive(false);
-        player4MoveText.gameObject.SetActive(false);
+        Player1Icon.gameObject.SetActive(true);
+        Player2Icon.gameObject.SetActive(false);
+        Player3Icon.gameObject.SetActive(false);
+        Player4Icon.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,8 +48,8 @@ public class GameControl : MonoBehaviour {
             player1StartWaypoint + diceSideThrown)
         {
             player1.GetComponent<FollowThePath>().moveAllowed = false;
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(true);
+            Player1Icon.gameObject.SetActive(false);
+            Player2Icon.gameObject.SetActive(true);
             player1StartWaypoint = player1.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
@@ -57,24 +57,24 @@ public class GameControl : MonoBehaviour {
             player2StartWaypoint + diceSideThrown)
         {
             player2.GetComponent<FollowThePath>().moveAllowed = false;
-            player2MoveText.gameObject.SetActive(false);
-            player3MoveText.gameObject.SetActive(true);
+            Player2Icon.gameObject.SetActive(false);
+            Player3Icon.gameObject.SetActive(true);
             player2StartWaypoint = player2.GetComponent<FollowThePath>().waypointIndex - 1;
         }
         if (player3.GetComponent<FollowThePath>().waypointIndex >
             player3StartWaypoint + diceSideThrown)
         {
             player3.GetComponent<FollowThePath>().moveAllowed = false;
-            player3MoveText.gameObject.SetActive(false);
-            player4MoveText.gameObject.SetActive(true);
+            Player3Icon.gameObject.SetActive(false);
+            Player4Icon.gameObject.SetActive(true);
             player3StartWaypoint = player3.GetComponent<FollowThePath>().waypointIndex - 1;
         }
         if (player4.GetComponent<FollowThePath>().waypointIndex >
             player4StartWaypoint + diceSideThrown)
         {
             player4.GetComponent<FollowThePath>().moveAllowed = false;
-            player4MoveText.gameObject.SetActive(false);
-            player1MoveText.gameObject.SetActive(true);
+            Player4Icon.gameObject.SetActive(false);
+            Player1Icon.gameObject.SetActive(true);
             player4StartWaypoint = player4.GetComponent<FollowThePath>().waypointIndex - 1;
         }
 
@@ -82,10 +82,10 @@ public class GameControl : MonoBehaviour {
             player1.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
-            player3MoveText.gameObject.SetActive(false);
-            player4MoveText.gameObject.SetActive(false);
+            Player1Icon.gameObject.SetActive(false);
+            Player2Icon.gameObject.SetActive(false);
+            Player3Icon.gameObject.SetActive(false);
+            Player4Icon.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<Text>().text = "Победил красный игрок";
             gameOver = true;
         }
@@ -94,10 +94,10 @@ public class GameControl : MonoBehaviour {
             player2.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
-            player3MoveText.gameObject.SetActive(false);
-            player4MoveText.gameObject.SetActive(false);
+            Player1Icon.gameObject.SetActive(false);
+            Player2Icon.gameObject.SetActive(false);
+            Player3Icon.gameObject.SetActive(false);
+            Player4Icon.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<Text>().text = "Победил синий игрок";
             gameOver = true;
         }
@@ -105,10 +105,10 @@ public class GameControl : MonoBehaviour {
             player3.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
-            player3MoveText.gameObject.SetActive(false);
-            player4MoveText.gameObject.SetActive(false);
+            Player1Icon.gameObject.SetActive(false);
+            Player2Icon.gameObject.SetActive(false);
+            Player3Icon.gameObject.SetActive(false);
+            Player4Icon.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<Text>().text = "Победил зелёный игрок";
             gameOver = true;
         }
@@ -116,10 +116,10 @@ public class GameControl : MonoBehaviour {
             player4.GetComponent<FollowThePath>().waypoints.Length)
         {
             whoWinsTextShadow.gameObject.SetActive(true);
-            player1MoveText.gameObject.SetActive(false);
-            player2MoveText.gameObject.SetActive(false);
-            player3MoveText.gameObject.SetActive(false);
-            player4MoveText.gameObject.SetActive(false);
+            Player1Icon.gameObject.SetActive(false);
+            Player2Icon.gameObject.SetActive(false);
+            Player3Icon.gameObject.SetActive(false);
+            Player4Icon.gameObject.SetActive(false);
             whoWinsTextShadow.GetComponent<Text>().text = "Победил жёлтый игрок";
             gameOver = true;
         }
